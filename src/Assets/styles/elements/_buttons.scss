@@ -1,0 +1,103 @@
+// Buttons -------------------------------------------------------------------------
+.btn {
+  outline: none !important;
+  border-color: transparent !important;
+  border-radius: 2px !important;
+  -webkit-box-shadow: 0 2px 7px 0 rgba(0,0,0,.26) !important;
+  -moz-box-shadow: 0 2px 7px 0 rgba(0,0,0,.26) !important;
+  box-shadow: 0 2px 7px 0 rgba(0,0,0,.26) !important;
+}
+// ---------------------------------------------------------------------------------
+
+// App Icon ------------------------------------------------------------------------
+.dashiconwrapper {
+  margin: 5px 0;
+  display: inline-block;
+  text-align: center;
+  & .dashicon {
+    color: #ffffff !important;
+    padding: 5px;
+    height: 75px;
+    min-width: 75px;
+    width: 100%;
+    text-align: center;
+    line-height: 70px !important;
+    font-size: 50px !important;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-decoration: none !important;
+    @include appColorBackgroundColor();
+  }
+  & .dashiconhandleopen {
+    width: 100%;
+    color: #ffffff;
+    cursor: pointer;
+    position: relative;
+    top: -3px;
+    -webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+    @include appColorBackgroundColor();
+    @include appColorDarkenBorderTop(10%);
+  }
+  & .dashiconhandleclose {
+    width: 100%;
+    bottom: -19px;
+    color: #ffffff;
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    -webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+    @include appColorBackgroundColor();
+    @include appColorDarkenBorderTop(10%);
+  }
+  & .dashicondrawer {
+    position: absolute;
+    width: auto;
+    min-width: 0;
+    top: 72px;
+    right: 15px;
+    left: 15px;
+    border-radius: 0 !important;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    border: {
+      width: 1px 0 0 0;
+      style: solid;
+      color: rgba(0, 0, 0, 0.1);
+    }
+    & a:first-child {
+      padding-top: 4px;
+    }
+    & a:last-of-type {
+      padding-bottom: 4px;
+    }
+    & a {
+      display: block;
+      padding: 2px 5px;
+      color: #333333;
+      text-decoration: none;
+      border: {
+        width: 0 1px;
+        style: solid;
+        color: rgba(0, 0, 0, 0.3);
+      }
+      &:hover {
+        background-color: #dddddd;
+      }
+    }
+  }
+  & .dashicontitle {
+    font-size: 15px;
+    text-align: center;
+  }
+  & .dashiconsubtitle {
+    font-size: 11px;
+    text-align: center;
+  }
+}
+// ---------------------------------------------------------------------------------
