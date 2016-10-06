@@ -1,18 +1,14 @@
-
-<div ng-controller="viewerController as vm" class="">
-    <style>
-
-         .some-pdf-container {
+<div ng-controller="viewerController as vm" class=""><style>
+        .some-pdf-container {
             width: 100%;
             height: 100%;
-          }     
-
+            padding:0;
+        }
     </style>
 
-    <div id="pageContainer" >
-        
-    <h1 style="font-size: 300pt">HI RYAN !!!</h1>
-
+    <div id="pageContainer" class="some-pdf-container">
+        {{ pdfUrl }}
+        <pdfjs-viewer src="{{ pdf.src }}"></pdfjs-viewer>
     </div>
 
 </div>

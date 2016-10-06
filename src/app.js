@@ -7,7 +7,8 @@
         // Angular-Local-Storage: HTML5 storage, cookies for older browsers.
         'LocalStorageModule', 
         // Sweet Alert
-        'oitozero.ngSweetAlert'
+        'oitozero.ngSweetAlert',
+        'pdfjsViewer'
     ]);
   
     /* 
@@ -19,6 +20,7 @@
         'localStorageServiceProvider',
         '$routeProvider',
         '@config',
+        //'pdfjs-viewer',
 
         function(localStorageServiceProvider, $routeProvider, config) {
 
@@ -26,7 +28,7 @@
             localStorageServiceProvider.setStorageCookieDomain(config.sessionService.cookieDomain);
 
             $routeProvider
-                .when('/viewer/1', {
+                .when('/viewer/1/pdf=?:pdfSrc*', {
                     templateUrl: "Modules/viewers/templates/pdfViewer.html"
                 })    
 
