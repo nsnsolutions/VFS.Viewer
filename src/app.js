@@ -28,9 +28,9 @@
             localStorageServiceProvider.setStorageCookieDomain(config.sessionService.cookieDomain);
 
             $routeProvider
-                .when('/viewer/1/pdf=?:pdfSrc*', {
+                .when('/viewer/1?pdf=:pdfSrc*', {
                     templateUrl: "Modules/viewers/templates/pdfViewer.html"
-                })    
+                })
 
                 .when('/viewer/2', { // Not used but you get the idea
                     templateUrl: "Modules/viewers/templates/otherViewer.html"
