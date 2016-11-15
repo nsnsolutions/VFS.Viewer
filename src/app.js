@@ -20,25 +20,24 @@
         'localStorageServiceProvider',
         '$routeProvider',
         '@config',
-        //'pdfjs-viewer',
-
+     
         function(localStorageServiceProvider, $routeProvider, config) {
 
             localStorageServiceProvider.setPrefix(config.sessionService.storageKey);
             localStorageServiceProvider.setStorageCookieDomain(config.sessionService.cookieDomain);
 
             $routeProvider
-                .when('/viewer/1?pdf=:pdfSrc*', {
+                .when('/?pdf=:pdfSrc*', {
                     templateUrl: "Modules/viewers/templates/pdfViewer.html"
                 })
-
-                .when('/viewer/2', { // Not used but you get the idea
-                    templateUrl: "Modules/viewers/templates/otherViewer.html"
-                })       
 
                 .otherwise({
                     redirectTo: '/'
                 });
+
+            //http://localhost:8282/#/viewer/1pdf=xxx  
+            //http://localhost:8282/#/pdf=https://vfs-job.s3.amazonaws.com/Velma/live/VP20161114211515d294544e/VP20161114211515d294544e.pdf
+            //  
         }
 
     ]);
@@ -49,32 +48,32 @@
      * that potentially changed through a get request. 
      */
 
-    app.config([
-            '$httpProvider', 
+    // app.config([
+    //         '$httpProvider', 
 
-            function($httpProvider) {
+    //         function($httpProvider) {
 
-                $httpProvider.interceptors.push('noCacheInterceptor');
+    //             $httpProvider.interceptors.push('noCacheInterceptor');
 
-            }]).factory('noCacheInterceptor', function () {
+    //         }]).factory('noCacheInterceptor', function () {
             
-                 //initialize get if not there
+    //              //initialize get if not there
    
-            return {
+    //         return {
                 
-                request: function (config) {
+    //             request: function (config) {
 
-                    // console.log(config.method);
-                    // console.log(config.url);
-                    if(config.method=='GET'){
-                         var separator = config.url.indexOf('?') === -1 ? '?' : '&';
-                         config.url = config.url+separator+'noCache=' + new Date().getTime();
-                    }
+    //                 // console.log(config.method);
+    //                 // console.log(config.url);
+    //                 if(config.method=='GET'){
+    //                      var separator = config.url.indexOf('?') === -1 ? '?' : '&';
+    //                      config.url = config.url+separator+'noCache=' + new Date().getTime();
+    //                 }
 
-                    return config;
-               }
-           };
-    });
+    //                 return config;
+    //            }
+    //        };
+    // });
 
 
 

@@ -7,8 +7,11 @@
     </style>
 
     <div id="pageContainer" class="some-pdf-container">
-        {{ pdfUrl }}
-        <pdfjs-viewer src="{{ pdf.src }}"></pdfjs-viewer>
+   
+        {{ vm.pdf }}
+        <pdfjs-viewer 
+            src="{{vm.pdf}}">
+        </pdfjs-viewer>
     </div>
 
 </div>
