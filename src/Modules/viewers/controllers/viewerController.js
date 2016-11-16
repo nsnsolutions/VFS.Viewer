@@ -30,6 +30,7 @@
         }
 
         PDFViewerApplication.pdfViewer = 'PDF.js';
+        
         console.log('In the viewer');
         $scope.pdf = {
             src: trustResource($routeParams.pdfSrc)
