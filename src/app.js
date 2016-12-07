@@ -36,11 +36,9 @@
                     redirectTo: '/'
                 });
 
-                $locationProvider.html5Mode(true);
+                // $locationProvider.html5Mode(true);
 
             //http://localhost:8282/#/viewer/1pdf=xxx  
-            //http://localhost:8282/#/pdf=https://vfs-job.s3.amazonaws.com/Velma/live/VP20161114211515d294544e/VP20161114211515d294544e.pdf
-            //  
         }
 
     ]);
