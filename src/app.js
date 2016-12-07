@@ -20,15 +20,14 @@
         'localStorageServiceProvider',
         '$routeProvider',
         '@config',
-        '$locationProvider',
      
-        function(localStorageServiceProvider, $routeProvider, config, $locationProvider) {
+        function(localStorageServiceProvider, $routeProvider, config) {
 
             localStorageServiceProvider.setPrefix(config.sessionService.storageKey);
             localStorageServiceProvider.setStorageCookieDomain(config.sessionService.cookieDomain);
 
             $routeProvider
-                .when('/?pdf=:pdfSrc*', {
+                .when('/?pdf=:pdf*', {
                     templateUrl: "Modules/viewers/templates/pdfViewer.html"
                 })
 

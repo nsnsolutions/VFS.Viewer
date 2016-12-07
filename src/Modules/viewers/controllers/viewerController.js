@@ -26,16 +26,19 @@
         var vm = this;
 
         function trustResource(resource){
+
+            console.log("Resource: " + resource);
+            
             return $sce.trustAsResourceUrl(resource);
         }
 
         PDFViewerApplication.pdfViewer = 'PDF.js';
         
         console.log('In the viewer');
+        
         $scope.pdf = {
-            src: trustResource($routeParams.pdfSrc)
+            src: trustResource($routeParams.pdf)
         };
-
 
         init();
 
