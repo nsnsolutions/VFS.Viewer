@@ -1,4 +1,5 @@
-<div ng-controller="viewerController as vm" class=""><style>
+<div ng-controller="viewerController as vm" class="">
+    <style>
         .some-pdf-container {
             width: 100%;
             height: 100%;
@@ -14,10 +15,17 @@
     }
     </style>
 
-    <div id="pageContainer" class="some-pdf-container">
-        <pdfjs-viewer 
+    <div id="pageContainer" class="some-pdf-container" ng-show="vm.openPDF">
+        <pdfjs-viewer
             src="{{ pdf.src }}">
         </pdfjs-viewer>
+    </div>
+
+    <div>
+        <div id="wrap" ng-hide="vm.openPDF">
+            <i class="fa fa-refresh fa-spin"></i>
+            Updated
+        </div>
     </div>
 
 </div>

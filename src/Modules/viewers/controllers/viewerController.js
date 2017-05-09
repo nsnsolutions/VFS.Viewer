@@ -29,6 +29,7 @@
         vm.checkingMilliseconds = 3000;
         vm.checks = 5;
         vm.counter = 0;
+        vm.openPDF = false;
         $scope.pdf = null;
 
         function trustResource(resource){
@@ -107,6 +108,7 @@
             }).then(
                 function (data) {
                     console.log("Success -- Load it");
+                    vm.openPDF = true;
                     trustResource($routeParams.pdf);
                 },
                 function (error) {
