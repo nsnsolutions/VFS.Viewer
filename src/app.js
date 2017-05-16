@@ -113,7 +113,7 @@
                     swal( title, message, 'warning' );
                 });
             },
-            info: function(title, message) {    
+            info: function(title, message) {
                 $rootScope.$evalAsync(function(){
                     swal( title, message, 'info' );
                 });

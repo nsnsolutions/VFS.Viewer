@@ -13,6 +13,24 @@
     {
         display:none;
     }
+    .totalOverlay{
+        opacity: 1;
+        position: relative;
+        z-index: 1;
+        transition-property: opacity;
+        transition-duration: 1.5s;
+        transition-timing-function: ease-in-out;
+    }
+    .totalOverlay1{
+        transition-property: opacity;
+        transition-duration: .25s;
+        opacity:0;
+    }
+        .transition{
+            transition-property: opacity;
+            transition-duration: 1s;
+            transition-timing-function: ease-in-out;
+        }
     </style>
 
     <div id="pageContainer" class="some-pdf-container" ng-show="vm.openPDF">
@@ -22,9 +40,13 @@
     </div>
 
     <div>
-        <div id="wrap" ng-hide="vm.openPDF">
-            <i class="fa fa-refresh fa-spin"></i>
-            Updated
+        <div id="overlay" class="totalOverlay" ng-hide="vm.transition">
+            <div ng-include src="'Modules/viewers/templates/loading.htm'"></div>
+        </div>
+    </div>
+    <div>
+        <div ng-show="vm.failed">
+            <!--<div ng-include src="'Modules/viewers/templates/failed.htm'"></div>-->
         </div>
     </div>
 

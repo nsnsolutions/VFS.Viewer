@@ -30,6 +30,7 @@
         vm.checks = 5;
         vm.counter = 0;
         vm.openPDF = false;
+        vm.failed = false;
         $scope.pdf = null;
 
         function trustResource(resource){
@@ -95,6 +96,24 @@
         {
             if (vm.counter >= vm.checks) {
                 console.log("Exceeded Checks - No More checky checky");
+                vm.failed = true;
+                var test = document.querySelector("div.totalOverlay");
+                test.className = 'totalOverlay1';
+                swal({
+                    title: "Oops! File not found.",
+                    text: 'Click retry to look again or cancel to quit',
+                    //type: "warning",
+                    showCancelButton: true,
+                    //confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Retry",
+                    closeOnConfirm: true
+                }, function() {
+                    vm.failed = false;
+                    vm.counter = 0;
+                    var test = document.querySelector("div.totalOverlay1");
+                    test.className = 'totalOverlay';
+                    checkForPDF();
+                });
                 return;
             }
 
@@ -109,6 +128,8 @@
                 function (data) {
                     console.log("Success -- Load it");
                     vm.openPDF = true;
+                    var test = document.querySelector("div.totalOverlay");
+                    test.className = 'totalOverlay1';
                     trustResource($routeParams.pdf);
                 },
                 function (error) {
@@ -128,7 +149,6 @@
         //}
 
         function init() {
-
             checkForPDF();
 
         }
