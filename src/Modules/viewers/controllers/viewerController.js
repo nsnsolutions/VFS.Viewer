@@ -134,7 +134,7 @@
                 },
                 function (error) {
                     console.log("FAILED DAMMIT");
-                    setTimeout(checkForPDF, vm.checkingMilliseconds);
+                    $timeout(function(){checkForPDF()}, vm.checkingMilliseconds);
                 }
             );
         }
