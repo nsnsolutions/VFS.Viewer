@@ -94,6 +94,7 @@
 
         function checkForPDF()
         {
+            vm.removeOverlay = false;
             if (vm.counter >= vm.checks) {
                 console.log("Exceeded Checks - No More checky checky");
                 vm.failed = true;
@@ -112,6 +113,8 @@
                     vm.counter = 0;
                     var test = document.querySelector("div.totalOverlay1");
                     test.className = 'totalOverlay';
+                    $timeout(function(){vm.removeOverlay = true;}, 500);
+
                     checkForPDF();
                 });
                 return;
@@ -131,12 +134,44 @@
                     var test = document.querySelector("div.totalOverlay");
                     test.className = 'totalOverlay1';
                     trustResource($routeParams.pdf);
+                    $timeout(function(){vm.removeOverlay = true;}, 500);
+                    var browser = detectIE();
+                    console.log(browser);
+                    if(browser){
+                        $('#print').css('display','none');
+                    }
                 },
                 function (error) {
                     console.log("FAILED DAMMIT");
-                    $timeout(function(){checkForPDF()}, vm.checkingMilliseconds);
+                    setTimeout(checkForPDF, vm.checkingMilliseconds);
                 }
             );
+        }
+
+        function detectIE(){
+                var ua = window.navigator.userAgent;
+
+                var msie = ua.indexOf('MSIE ');
+                if (msie > 0) {
+                    // IE 10 or older => return version number
+                    return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+                }
+
+                var trident = ua.indexOf('Trident/');
+                if (trident > 0) {
+                    // IE 11 => return version number
+                    var rv = ua.indexOf('rv:');
+                    return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+                }
+
+                var edge = ua.indexOf('Edge/');
+                if (edge > 0) {
+                    // Edge (IE 12+) => return version number
+                    return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+                }
+
+                // other browser
+                return false;
         }
 
 
@@ -150,7 +185,6 @@
 
         function init() {
             checkForPDF();
-
         }
 
 
