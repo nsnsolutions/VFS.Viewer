@@ -34,10 +34,6 @@
                 .otherwise({
                     redirectTo: '/'
                 });
-
-                // $locationProvider.html5Mode(true);
-
-            //http://localhost:8282/#/viewer/1pdf=xxx  
         }
 
     ]);
@@ -47,7 +43,6 @@
      * This cache interceptor is used to make sure the http get calls are pulling new version of files
      * that potentially changed through a get request. 
      */
-
   
     app.config([
             '$httpProvider', 
@@ -113,7 +108,7 @@
                     swal( title, message, 'warning' );
                 });
             },
-            info: function(title, message) {    
+            info: function(title, message) {
                 $rootScope.$evalAsync(function(){
                     swal( title, message, 'info' );
                 });

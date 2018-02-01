@@ -5,7 +5,9 @@ To Setup
 
 Run npm install when you have downloaded the project fresh
 
-If alrady have the code
+*Note: Copy "pdf.js-viewer" to build folder
+
+If already have the code
 
 
     1. from the main source area VFS.Viewer run grunt watch in a powershell window
