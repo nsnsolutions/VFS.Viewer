@@ -11,22 +11,22 @@ const crypto = require('crypto');
 const targets = {
     dev: {
         bucket: 'vfs-apps',
-        prefix: path.join('admin','dev')
+        prefix: path.join('viewer','dev')
     },
 
     test: {
         bucket: 'vfs-apps',
-        prefix: path.join('admin','test')
+        prefix: path.join('viewer','test')
     },
 
     beta: {
         bucket: 'vfs-apps',
-        prefix: path.join('admin','beta')
+        prefix: path.join('viewer','beta')
     },
 
     prod: {
         bucket: 'vfs-apps',
-        prefix: path.join('admin','prod')
+        prefix: path.join('viewer','prod')
     }
 };
 
@@ -78,11 +78,11 @@ module.exports = function(grunt) {
                 }]
             },
 
-            scripts: {
+            pdfViewer: {
                 files: [{
                     cwd: 'src/',
                     dest: 'build/',
-                    src: 'scripts/**'
+                    src: 'pdf.js-viewer/**'
                 }]
             }
 
@@ -263,7 +263,7 @@ module.exports = function(grunt) {
         'sync:html',
         'sync:images',
         'sync:json',
-        'sync:scripts',
+        'sync:pdfViewer',
         'computeCacheGuid'
       ]);
 
@@ -275,6 +275,7 @@ module.exports = function(grunt) {
         'sync:html',
         'sync:images',
         'sync:json',
+        'sync:pdfViewer',
         'computeCacheGuid'
       ]);
 
