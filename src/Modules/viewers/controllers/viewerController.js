@@ -42,55 +42,7 @@
 
         }
 
-        //
-        //$scope.pdf = {
-        //    src: trustResource($routeParams.pdf)
-        //};
-
-        //function trustResource(resource){
-        //    console.log("Resource: " + resource);
-        //
-        //    if(i != 3) {
-        //        $http({
-        //            method: 'GET',
-        //            url: $routeParams.pdf
-        //        }).then(
-        //            function (data) {
-        //                vm.opened = true;
-        //                console.log("HERE I AM!!!!!!");
-        //                console.log(data);
-        //                //$interpolate($scope.pdf)($scope);
-        //                return $sce.trustAsResourceUrl($routeParams.pdf);
-        //            },
-        //            function (error) {
-        //                console.log("FAILED DAMMIT");
-        //                console.log(error);
-        //                i++;
-        //                $timeout(function(){
-        //                    trustResource($routeParams.pdf);
-        //                }, 5000)
-        //            }
-        //        )
-        //    }
-        //
-        //    else{
-        //        console.log("TOO MANY FAILURES!");
-        //    }
-        //
-        //    //
-        //    //if(resource || i == 10) {
-        //    //    return $sce.trustAsResourceUrl(resource);
-        //    //}
-        //    //else{
-        //    //    i++;
-        //    //    trustResource($routeParams.pdf);
-        //    //}
-        //}
-
-
         PDFViewerApplication.pdfViewer = 'PDF.js';
-
-        console.log('In the viewer');
 
         function checkForPDF()
         {
@@ -129,7 +81,7 @@
                 url: $routeParams.pdf
             }).then(
                 function (data) {
-                    console.log("Success -- Load it");
+                    console.log("Loading file...");
                     vm.openPDF = true;
                     var test = document.querySelector("div.totalOverlay");
                     test.className = 'totalOverlay1';
@@ -142,7 +94,8 @@
                     }
                 },
                 function (error) {
-                    console.log("FAILED DAMMIT");
+                    console.log("Error:");
+                    console.log(error);
                     setTimeout(checkForPDF, vm.checkingMilliseconds);
                 }
             );
@@ -176,13 +129,7 @@
 
 
         init();
-        //
-        //function checkForItem() {
-        //
-        //    console.log("Check for Item");
-        //
-        //}
-
+     
         function init() {
             checkForPDF();
         }
